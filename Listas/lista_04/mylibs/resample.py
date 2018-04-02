@@ -17,6 +17,7 @@ def split_train_test(n_elem, perc_train, seed):
     return train,test
 
 
+
 def split_k_fold(n_elem, n_splits=3, shuffle=True, seed=0):
     a = [ i for i in range(n_elem)]
     np.random.seed(seed)
