@@ -23,7 +23,6 @@ def split_k_fold(n_elem, n_splits=3, shuffle=True, seed=0):
     if shuffle == True:
         np.random.shuffle(a)
     n_test = int(round(n_elem * (1.0 / n_splits)))
-    n_train = n_elem - n_test
 
     train = []
     test = []
@@ -31,8 +30,15 @@ def split_k_fold(n_elem, n_splits=3, shuffle=True, seed=0):
     for i in range(n_splits):
         train_Aux = []
         test_Aux = []
+        test_Aux = a[i*n_test:i*n_test + n_test]
+        for x in a:
+            if x not in test_Aux:
+                train_Aux.append(x)
 
 
 
+        
         train.append(train_Aux)
         test.append(test_Aux)
+
+    return np.array(train),np.array(test)
