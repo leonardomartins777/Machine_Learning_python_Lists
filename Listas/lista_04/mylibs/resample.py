@@ -32,8 +32,6 @@ def split_k_fold(n_elem, n_splits=3, shuffle=True, seed=0):
         train_Aux = []
         test_Aux = []
 
-        
-
 
 
         train.append(train_Aux)
