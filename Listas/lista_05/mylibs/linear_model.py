@@ -24,13 +24,11 @@ class SimpleLinearRegression(object):
         return np.array(retorno)
         
 class LogisticRegression (object):
-    b0 = 0.
-    b1 = 0.
+    beta_ = 0
     
 
     def __init__(self):
-        self.b0 = 0.
-        self.b1 = 0.
+        self.beta_ =  0.
 
     def fit(self,X, y):
         np.random.seed(3)
@@ -51,7 +49,7 @@ class LogisticRegression (object):
             gradient = np.dot(np.transpose(x), y - y_hat)
             beta = beta + learning_rate*gradient
 
-        return beta
+        self.beta_ = beta
     
     def predict(self,X):
         x_beta = np.dot(x, beta)
